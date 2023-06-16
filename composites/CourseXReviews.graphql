@@ -1,0 +1,7 @@
+type Reviews @loadModel(id: "$REVIEW_ID") {
+  id: ID!
+}
+
+type CourseDetails @loadModel(id: "$COURSE_DETAILS_ID"){
+  reviews: [Reviews] @list(maxLength: 200) @relationFrom(model: "Reviews", property: "CourseDetailsID")
+}
